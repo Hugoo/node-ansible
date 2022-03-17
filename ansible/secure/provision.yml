@@ -1,0 +1,20 @@
+---
+- name: Provision a new server with hardened SSH and basic iptables.
+
+  # Specify the hosts you want to target
+  # https://github.com/joelhans/ssdnodes-ansible-provision
+  hosts: validator
+  remote_user: ubuntu
+  become: true
+
+  vars:
+    username: hugo
+    password: xxx
+    public_key: ~/.ssh/id_rsa.pub
+
+  roles:
+    - user
+    - packages
+    - ssh
+    # - iptables
+    - fail2ban
