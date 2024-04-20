@@ -1,13 +1,10 @@
 ---
 - name: Setup LUKSO node
-  hosts: lukso_node_1
+  hosts: nodes
+  remote_user: ubuntu
   become: true
 
-  # tasks:
-  #   - name: Firewall rule - allow port 8302
-  #     iptables:
-  #       chain: INPUT
-  #       destination_port: "8302"
-  #       ctstate: NEW
-  #       jump: ACCEPT
-  #       protocol: tcp
+  roles:
+    - nodes
+    # - configs
+    # - docker

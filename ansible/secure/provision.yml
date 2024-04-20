@@ -3,18 +3,17 @@
 
   # Specify the hosts you want to target
   # https://github.com/joelhans/ssdnodes-ansible-provision
-  hosts: validator
+  hosts: nodes
   remote_user: ubuntu
   become: true
 
   vars:
     username: hugo
-    password: xxx
     public_key: ~/.ssh/id_rsa.pub
 
   roles:
-    - user
-    - packages
-    - ssh
+    # - user
+    # - packages
+    # - ssh
     # - iptables
-    - fail2ban
+    # - fail2ban

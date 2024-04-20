@@ -1,5 +1,4 @@
 ---
-
 - name: Upgrading all packages (Ubuntu/Debian)
   apt:
     upgrade: dist
@@ -10,8 +9,9 @@
     name: "{{item}}"
     state: present
   with_items:
-   - vim
-   - htop
+    - vim
+    - neovim
+    - htop
 
 - name: Install the `unattended-upgrades` package
   package:

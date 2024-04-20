@@ -20,11 +20,8 @@
 - name: Create the non-root user account
   user:
     name: "{{ username }}"
-    password: "{{ password }}"
+    password: "{{ '1234' | password_hash('sha512') }}"
     shell: /bin/bash
-    update_password: on_create
+    update_password: always
     groups: wheel
     append: yes
-
-
-    

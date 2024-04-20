@@ -1,5 +1,4 @@
 ---
-
 - name: Install the `iptables` package
   package:
     name: iptables
@@ -31,21 +30,21 @@
 - name: Firewall rule - allow port 22/SSH traffic
   iptables:
     chain: INPUT
-    destination_port: '22'
+    destination_port: "22"
     jump: ACCEPT
     protocol: tcp
 
-- name: Firewall rule - allow port 80/HTTP traffic
+- name: Firewall rule - disallow port 80/HTTP traffic
   iptables:
     chain: INPUT
-    destination_port: '80'
-    jump: ACCEPT
+    destination_port: "80"
+    jump: DROP
     protocol: tcp
 
 - name: Firewall rule - allow port 443/HTTPS traffic
   iptables:
     chain: INPUT
-    destination_port: '443'
+    destination_port: "443"
     jump: ACCEPT
     protocol: tcp
 
@@ -59,6 +58,6 @@
     name: "{{item}}"
     state: present
   with_items:
-   - iptables-persistent
-   - netfilter-persistent
+    - iptables-persistent
+    - netfilter-persistent
   when: ansible_os_family == "Debian" or ansible_os_family == "Ubuntu"

@@ -1,0 +1,117 @@
+---
+- name: Firewall rule - ERIGON - allow port TCP 42069 Snap sync (Bittorrent) traffic
+  iptables:
+    chain: INPUT
+    destination_port: "42069"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port TCP 30303 eth/68 peering traffic
+  iptables:
+    chain: INPUT
+    destination_port: "30303"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port TCP 30304 eth/67 peering traffic
+  iptables:
+    chain: INPUT
+    destination_port: "30304"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port UDP 42069 Snap sync (Bittorrent) traffic
+  iptables:
+    chain: INPUT
+    destination_port: "42069"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - ERIGON - allow port UDP 30303 eth/68 peering traffic
+  iptables:
+    chain: INPUT
+    destination_port: "30303"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - ERIGON - allow port UDP 30304 eth/67 peering traffic
+  iptables:
+    chain: INPUT
+    destination_port: "30304"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - ERIGON - allow port TCP OUTPUT 42069 Snap sync (Bittorrent) traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "42069"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port TCP OUTPUT 30303 eth/68 peering traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "30303"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port TCP OUTPUT 30304 eth/67 peering traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "30304"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - ERIGON - allow port UDP OUTPUT 42069 Snap sync (Bittorrent) traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "42069"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - ERIGON - allow port OUTPUT UDP 30303 eth/68 peering traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "30303"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - ERIGON - allow port OUTPUT UDP 30304 eth/67 peering traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "30304"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - PRYSM - allow port 13000 INPUT traffic
+  iptables:
+    chain: INPUT
+    destination_port: "13000"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - PRYSM - allow port 12000 INPUT traffic
+  iptables:
+    chain: INPUT
+    destination_port: "12000"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - PRYSM - allow port 13000 OUTPUT traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "13000"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - PRYSM - allow port 12000 OUTPUT traffic
+  iptables:
+    chain: OUTPUT
+    destination_port: "12000"
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - drop any traffic without rule
+  iptables:
+    chain: INPUT
+    jump: DROP
